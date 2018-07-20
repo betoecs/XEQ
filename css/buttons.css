@@ -1,0 +1,44 @@
+button
+{
+	font-size: 120%;
+	border: none;
+	font-weight: 400;
+	padding: 1% 5%;
+	transition: 0.4s;
+	font-family: 'Exo';
+}
+
+button:hover { cursor: pointer; }
+
+/* Floating action */
+.floating-action-button
+{
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+/* Color */
+
+.main-button
+{
+	background-color: #158f9c;
+	color: white;
+}
+.main-button:hover { background-color: #16c0d1; }
+
+.red-button
+{
+	background-color: #fe4242;
+	color: white;
+}
+.red-button:hover { background-color: #ff2424; }
+
+/* Text button */
+.text-button
+{
+	background-color: transparent;
+	color: #158f9c;
+}
+.text-button:hover { color: #16c0d1; }

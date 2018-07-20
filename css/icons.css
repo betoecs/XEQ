@@ -1,0 +1,22 @@
+@font-face
+{
+	font-family: 'xeq-font';
+	src: url('../../assets/xeq-font.ttf');
+}
+
+[class*="icon"]::before
+{
+	font-family: 'xeq-font';
+}
+
+.icon-logout::before
+{
+	content: 'a';
+	vertical-align: middle;
+}
+
+.icon-login::before
+{
+	content: 'b';
+	vertical-align: middle;
+}

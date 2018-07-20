@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="css/grid.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/form.css" />
+		<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/homepage.css" />
+
+		<script src="js/homepage.js"></script>
+
+		<title>XEQ</title>
+	</head>
+
+	<body>
+		<h1>XEQ</h1>
+
+		<!-- Log in section -->
+		<section class="scol12" id="log-in-section">
+			<span class="scol0 bcol4"></span>
+			<div class="scol12 bcol4 dialog">
+				<h3>Log in</h3>
+				<span class="scol1"></span>
+				<form class="scol10" id="log-in-form" action="javascript: homepage.logIn()">
+					<label class="scol12" for="nick">Nick: </label>
+					<input class="scol12" type="text" id="log-in-nick" required="required" />
+					<label class="scol12" for="password">Password: </label>
+					<input class="scol12" type="password" id="log-in-password" required="required" />
+					<button class="scol12 main-button">Log in <span class="icon-login"></span></button>
+				</form>
+				<button class="scol12 text-button" onclick="homepage.showSignInSection()">Need an account?</button>
+			</div>
+		</section>
+
+		<!-- Sign in section -->
+		<section class="scol12" id="sign-in-section" style="display: none">
+			<span class="scol0 bcol4"></span>
+			<div class="scol12 bcol4 dialog">
+				<h3>Sign in</h3>
+				<span class="scol1"></span>
+				<form class="scol10" action="javascript: homepage.signIn()" onsubmit="return homepage.validateSignInForm()" id="sign-in-form">
+					<label class="scol12" for="nick">Nick: </label>
+					<input class="scol12" type="text" id="nick" required="required" />
+					<label class="scol12" for="email">Email: </label>
+					<input class="scol12" type="email" id="email" required="required" />
+					<label class="scol12" for="password">Password: </label>
+					<input class="scol12" type="password" id="password" required="required" />
+					<label class="scol12" for="confirm-password">Confirm password: </label>
+					<input class="scol12" type="password" id="confirm-password" required="required" />
+					<button class="scol12 main-button">Sign in <span class="icon-login"></span></button>
+				</form>
+				<button class="scol12 text-button" onclick="homepage.showLogInSection()">Cancel</button>
+			</div>
+		</section>
+	</body>
+</html>
