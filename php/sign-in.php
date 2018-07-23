@@ -7,7 +7,7 @@
 
 	$response = new stdClass();
 	$db = connect_db();
-	$stmt = $db->prepare('INSERT INTO player VALUES (NULL, ?, ?, SHA2(?, 256), "de.jpg", 0)');
+	$stmt = $db->prepare('INSERT INTO player VALUES (NULL, ?, ?, SHA2(?, 256), "de.jpg", 1)');
 	$stmt->bind_param('sss', $nick, $email, $password);
 
 	$response->status = (($stmt->execute()) ? 'ok' : 'error');

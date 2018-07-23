@@ -42,3 +42,14 @@ button:hover { cursor: pointer; }
 	color: #158f9c;
 }
 .text-button:hover { color: #16c0d1; }
+
+.icon-button
+{
+	color: white;
+	transition: 0.4s;
+}
+.icon-button:hover
+{
+	color: #16c0d1;
+	cursor: pointer;
+}

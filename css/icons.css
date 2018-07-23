@@ -1,7 +1,7 @@
 @font-face
 {
 	font-family: 'xeq-font';
-	src: url('../../assets/xeq-font.ttf');
+	src: url('../assets/xeq-font.ttf');
 }
 
 [class*="icon"]::before
@@ -19,4 +19,12 @@
 {
 	content: 'b';
 	vertical-align: middle;
+}
+
+.icon-check::before { content: 'c'; }
+.icon-trash::before { content: 'd'; }
+.icon-rss::before
+{
+	vertical-align: middle;
+	content: 'e';
 }
