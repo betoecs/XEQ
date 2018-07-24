@@ -1,5 +1,9 @@
 var gamesSection =
 {
+	//////////////////////////////////////
+	// Retrieves all the games of the platform
+	// and creates graphic controller for each one
+	//////////////////////////////////////
 	getGames: function()
 	{
 		var gamesArea = document.getElementById('games-area');
@@ -32,6 +36,10 @@ var gamesSection =
 		xhr.send();
 	},
 
+	//////////////////////////////////////
+	// Retrieves the games of the player
+	// and create the graphic elements for each one
+	//////////////////////////////////////
 	getMyGames: function()
 	{
 		var myGamesArea = document.getElementById('my-games-area');
@@ -68,6 +76,10 @@ var gamesSection =
 		xhr.send();
 	},
 
+	//////////////////////////////////////
+	// Creates the graphic controller for
+	// a game and appends as child of parent element
+	//////////////////////////////////////
 	createGameElement: function(parentElement, game)
 	{
 		var gameElement = document.createElement('div');
