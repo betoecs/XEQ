@@ -13,60 +13,48 @@
 		<link rel="stylesheet" type="text/css" href="css/xeq.css" />
 
 		<script src="js/xeq.js"></script>
-		<script src="js/friends-section.js"></script>
 		<script src="js/upload-game-section.js"></script>
+		<script src="js/upload-image.js"></script>
 
 		<title>XEQ</title>
 	</head>
 	<body>
-		<header class="scol12">
+		<section class="scol12 header">
 			<h1 id="player-nick">Beto</h1>
 			<button class="floating-action-button red-button icon-logout" id="logout-button" onclick="xeq.log_out()"></button>
-		</header>
-
+		</section>
 		<nav class="scol12">
-			<div class="scol3" id="games-nav" onclick="xeq.setCurrentSection(Sections.Games)">Games</div>
-			<div class="scol3" id="my-games-nav" onclick="xeq.setCurrentSection(Sections.MyGames)">My Games</div>
-			<div class="scol3" id="friends-nav" onclick="xeq.setCurrentSection(Sections.Friends)">Friends</div>
-			<div class="scol3" id="profile-nav" onclick="xeq.setCurrentSection(Sections.Profile)">Profile</div>
+			<div class="scol3 selected-nav-div">Games</div>
+			<div class="scol3">My Games</div>
+			<div class="scol3">Friends</div>
+			<div class="scol3">Profile</div>
 		</nav>
 
-		<section class="scol12" id="games-section" style="display: none">
-		</section>
-
-		<section class="scol12" id="my-games-section" style="display: none">
-		</section>
-
-		<!-- Friends section -->
-		<section class="scol12" id="friends-section" style="display: none">
-			<span class="scol0 bcol3"></span>
-			<div class="scol12 bcol6">
-				<div class="scol12 scroll-area" id="friend-requests-area" style="margin-bottom: 20px;"></div>
-
-				<div class="scol12 scroll-area" id="friends-area"></div>
-				<h4 style="display: none" id="no-friends-message">You don't have friends :(</h4>
-
-				<input type="text" class="scol12 animated-input" placeholder="Search..." oninput="friendsSection.searchPlayer(this.value)"
-					style="margin-top: 20px" />
-				<div class="scol12 scroll-area" id="found-players-area"></div>
-			</div>
-		</section>
-
-		<section class="scol12" id="profile-section" style="display: none">
 		<section class="scol12" id="games-section">
 			<span class="bcol5 scol1"></span>
-			<button class="bcol2 main-button" id="upload-game-button" onclick="uploadGameSection.showUploadGameSection ()">Add game</button>
+			<button class="bcol2 main-button" id="upload-game-button" onclick="uploadGameSection.show()">Add game</button>
 		</section>
 
 		<section class="scol12" id="upload-game-section" style="display: none">
 			<span class="bcol3 scol1"></span>
 			<form class="bcol6" id="upload-game">
-				<div class="scol12" id="game-image"></div>
-				<label class="scol12" for="game-name">Name: </label>
-				<input class="scol12" type="text" id="game-name" required="required"/>
-				<button class="scol12 main-button" id="upload-game-file-button" onclick="">Add file</button>
+				<div class="bcol2" id="game-image" onclick="document.getElementById('game-image-upload-input').click()"></div>
+				<span class="bcol1"></span>
+				<div class="bcol8 scol12">
+					<label class="scol12" for="game-name">Name: </label>
+					<input class="scol12" type="text" id="game-name" required="required"/>
+					<label class="scol12" for="game-name">JS File: </label>
+					<input class="scol12" id="game-js-file-upload" type="text" placeholder="Click me" readonly
+							onclick="document.getElementById('game-js-file-upload-input').click()"/>
+					<button class="scol12 main-button">Upload Game</button>
+				</div>
 				</span>
 			</form>
+			<input id="game-image-upload-input" type="file" style="position: fixed; top: -1000px" accept="image/*"
+					onchange="uploadGameSection.setImage(this)"/>
+			<input id="game-js-file-upload-input" type="file" style="position: fixed; top: -1000px" accept=".js"
+					onchange="uploadGameSection.setJSFile(this)"/>
 		</section>
+
 	</body>
 </html>
