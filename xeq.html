@@ -13,22 +13,46 @@
 		<link rel="stylesheet" type="text/css" href="css/xeq.css" />
 
 		<script src="js/xeq.js"></script>
+		<script src="js/friends-section.js"></script>
 		<script src="js/upload-game-section.js"></script>
 
 		<title>XEQ</title>
 	</head>
 	<body>
-		<section class="scol12 header">
+		<header class="scol12">
 			<h1 id="player-nick">Beto</h1>
 			<button class="floating-action-button red-button icon-logout" id="logout-button" onclick="xeq.log_out()"></button>
-		</section>
+		</header>
+
 		<nav class="scol12">
-			<div class="scol3 selected-nav-div">Games</div>
-			<div class="scol3">My Games</div>
-			<div class="scol3">Friends</div>
-			<div class="scol3">Profile</div>
+			<div class="scol3" id="games-nav" onclick="xeq.setCurrentSection(Sections.Games)">Games</div>
+			<div class="scol3" id="my-games-nav" onclick="xeq.setCurrentSection(Sections.MyGames)">My Games</div>
+			<div class="scol3" id="friends-nav" onclick="xeq.setCurrentSection(Sections.Friends)">Friends</div>
+			<div class="scol3" id="profile-nav" onclick="xeq.setCurrentSection(Sections.Profile)">Profile</div>
 		</nav>
 
+		<section class="scol12" id="games-section" style="display: none">
+		</section>
+
+		<section class="scol12" id="my-games-section" style="display: none">
+		</section>
+
+		<!-- Friends section -->
+		<section class="scol12" id="friends-section" style="display: none">
+			<span class="scol0 bcol3"></span>
+			<div class="scol12 bcol6">
+				<div class="scol12 scroll-area" id="friend-requests-area" style="margin-bottom: 20px;"></div>
+
+				<div class="scol12 scroll-area" id="friends-area"></div>
+				<h4 style="display: none" id="no-friends-message">You don't have friends :(</h4>
+
+				<input type="text" class="scol12 animated-input" placeholder="Search..." oninput="friendsSection.searchPlayer(this.value)"
+					style="margin-top: 20px" />
+				<div class="scol12 scroll-area" id="found-players-area"></div>
+			</div>
+		</section>
+
+		<section class="scol12" id="profile-section" style="display: none">
 		<section class="scol12" id="games-section">
 			<span class="bcol5 scol1"></span>
 			<button class="bcol2 main-button" id="upload-game-button" onclick="uploadGameSection.showUploadGameSection ()">Add game</button>
