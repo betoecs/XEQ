@@ -28,3 +28,8 @@
 	vertical-align: middle;
 	content: 'e';
 }
+
+.icon-upload { content: 'f'; }
+.icon-js { content: 'h'; }
+.icon-image { content: 'g'; }
+.icon-play { content: 'i'; }

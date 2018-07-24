@@ -35,7 +35,9 @@ var xeq =
 
 		switch (this.currentSection)
 		{
-			case Sections.Friends: friendsSection.update(); break;
+			case Sections.Friends:	friendsSection.update(); break;
+			case Sections.Games:	gamesSection.getGames(); break;
+			case Sections.MyGames:	gamesSection.getMyGames(); break;
 		}
 	},
 
