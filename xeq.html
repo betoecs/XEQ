@@ -9,9 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css" />
 		<link rel="stylesheet" type="text/css" href="css/buttons.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/upload-game.css" />
 		<link rel="stylesheet" type="text/css" href="css/xeq.css" />
 
 		<script src="js/xeq.js"></script>
+		<script src="js/upload-game-section.js"></script>
 
 		<title>XEQ</title>
 	</head>
@@ -26,5 +28,21 @@
 			<div class="scol3">Friends</div>
 			<div class="scol3">Profile</div>
 		</nav>
+
+		<section class="scol12" id="games-section">
+			<span class="bcol5 scol1"></span>
+			<button class="bcol2 main-button" id="upload-game-button" onclick="uploadGameSection.showUploadGameSection ()">Add game</button>
+		</section>
+
+		<section class="scol12" id="upload-game-section" style="display: none">
+			<span class="bcol3 scol1"></span>
+			<form class="bcol6" id="upload-game">
+				<div class="scol12" id="game-image"></div>
+				<label class="scol12" for="game-name">Name: </label>
+				<input class="scol12" type="text" id="game-name" required="required"/>
+				<button class="scol12 main-button" id="upload-game-file-button" onclick="">Add file</button>
+				</span>
+			</form>
+		</section>
 	</body>
 </html>

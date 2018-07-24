@@ -15,8 +15,6 @@ CREATE TABLE game
 (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR (30) NOT NULL UNIQUE,
-	min_players INT (3) NOT NULL,
-	max_players INT (3) NOT NULL,
 	image VARCHAR (10) NOT NULL
 );
 
