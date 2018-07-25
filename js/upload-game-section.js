@@ -2,9 +2,22 @@ var uploadGameSection =
 {
     show: function()
 	{
+        document.getElementById('games-section').style.display = 'none';
 		document.getElementById('upload-game-section').style.display = 'block';
-		document.getElementById('games-section').style.display = 'none';
 	},
+
+    hide: function()
+	{
+        document.getElementById('game-name').value = "";
+        document.getElementById('games-section').style.display = 'block';
+		document.getElementById('upload-game-section').style.display = 'none';
+	},
+
+    clean: function()
+    {
+        document.getElementById('game-name').value = "";
+        document.getElementById('game-js-file').value = "";
+    },
 
     setImage: function(uploadInput)
     {
@@ -13,6 +26,31 @@ var uploadGameSection =
 
     setJSFile: function(uploadInput)
     {
-        document.getElementById('game-js-file-upload').placeholder = uploadInput.value;
+        document.getElementById('game-js-file').placeholder = uploadInput.files [0].name;
+    },
+
+    uploadGame: function()
+    {
+        var formData = new FormData();
+
+        formData.append("name", document.getElementById('game-name').value);
+        formData.append("image", document.getElementById("game-image-upload-input").files [0]);
+        formData.append("js-file", document.getElementById("game-js-file-upload-input").files [0]);
+
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+            var response = JSON.parse(this.responseText);
+            if (response.status == "ok")
+                uploadGameSection.hide();
+
+            else
+                uploadGameSection.clean();
+		}
+		xmlhttp.open("POST", "php/upload-game.php");
+		xmlhttp.send(formData);
     }
-}
+};
