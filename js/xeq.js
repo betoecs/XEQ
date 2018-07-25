@@ -40,9 +40,11 @@ var xeq =
 	},
 
 	//////////////////////////////////////
-	// Closes session and redirect to homepage.html
+	// Closes session and redirect to homepage.html.
+	// asynchronous param indicates if the
+	// ajax must be asynchronous
 	//////////////////////////////////////
-	log_out: function()
+	logOut: function(asynchronous = true)
 	{
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function()
@@ -53,9 +55,10 @@ var xeq =
 			sessionStorage.removeItem('nick');
 			document.location.href = 'homepage.html';
 		};
-		xhr.open("GET", "php/log-out.php");
+		xhr.open("GET", "php/log-out.php", asynchronous);
 		xhr.send();
 	}
 };
 
 window.onload = function() { xeq.init(); };
+window.onunload = function() { xeq.logOut(false); };
