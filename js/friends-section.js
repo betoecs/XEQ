@@ -29,7 +29,7 @@ var friendsSection =
 			let response = JSON.parse(this.responseText);
 			if (response.status != 'ok')
 			{
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 				return;
 			}
 
@@ -93,6 +93,11 @@ var friendsSection =
 			{
 				friendsSection.createFriendElement(document.getElementById('friends-area'), player);
 				document.getElementById('no-friends-message').style.display = 'none';
+				showToast('Friend accepted');
+			}
+			else
+			{
+				showToast('Request rejected');
 			}
 		};
 		xhr.open("GET", "php/solve-friend-request.php?id=" + player.id + "&accepted=" + accepted);
@@ -120,7 +125,7 @@ var friendsSection =
 
 			if (response.status != 'ok')
 			{
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 				return;
 			}
 
@@ -191,7 +196,7 @@ var friendsSection =
 
 			if (response.status != 'ok')
 			{
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 				return;
 			}
 
@@ -233,9 +238,9 @@ var friendsSection =
 
 			var response = JSON.parse(this.responseText);
 			if (response.status == 'ok')
-				console.log('Request sent');
+				showToast('Request sent');
 			else
-				console.log(response.status);
+				showToast(response.status);
 		};
 		xhr.open('GET', 'php/send-friend-request.php?to=' + playerId);
 		xhr.send();

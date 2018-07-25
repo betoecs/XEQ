@@ -1,0 +1,30 @@
+#toast
+{
+	position: fixed;
+	background-color: white;
+	color: #333;
+	padding: 0.5% 1%;
+	font-size: 120%;
+	border-radius: 3px;
+	z-index: 5;
+	display: none;
+}
+
+#toast.get-in
+{
+	bottom: 50px;
+	-webkit-animation: toast-get-in 0.5s, toast-get-in 0.5s 2s reverse;
+	animation: toast-get-in 0.5s, toast-get-in 0.5s 2s reverse
+}
+
+@-webkit-keyframes toast-get-in
+{
+	from { bottom: 0; }
+	to   { bottom: 50px; }
+}
+
+@keyframes toast-get-in
+{
+	from { bottom: 0; }
+	to   { bottom: 50px; }
+}

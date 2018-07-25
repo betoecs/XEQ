@@ -34,7 +34,7 @@ var homepage =
 
 		confirmPasswordField.value = passwordField.value = '';
 		passwordField.focus();
-		console.log("Passwords don't match");
+		showToast("Passwords don't match");
 		return false;
 	},
 
@@ -66,7 +66,7 @@ var homepage =
 				sessionStorage.setItem("nick", formData.get('nick'));
 			}
 			else
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 		};
 		xhr.open("POST", "php/sign-in.php");
 		xhr.send(formData);
@@ -98,7 +98,11 @@ var homepage =
 				sessionStorage.setItem("nick", formData.get('nick'));
 			}
 			else
-				console.log('Invalid data');
+			{
+				logInForm.reset();
+				logInForm ['log-in-nick'].focus();
+				showToast('Invalid data');
+			}
 		}
 		xhr.open("POST", "php/log-in.php");
 		xhr.send(formData);
