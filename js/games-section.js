@@ -19,13 +19,13 @@ var gamesSection =
 			var response = JSON.parse(this.responseText);
 			if (response.status != 'ok')
 			{
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 				return;
 			}
 
 			if (! response.games.length)
 			{
-				console.log('no games');
+				showToast("Sorry, we don't have games yet");
 				return;
 			}
 
@@ -55,13 +55,13 @@ var gamesSection =
 			var response = JSON.parse(this.responseText);
 			if (response.status != 'ok')
 			{
-				console.log('Something went wrong');
+				showToast('Something went wrong');
 				return;
 			}
 
 			if (! response.games.length)
 			{
-				console.log("You don't have games");
+				showToast("You don't have games yet");
 				return;
 			}
 
@@ -97,9 +97,50 @@ var gamesSection =
 
 		var playButton = document.createElement('span');
 		playButton.className = 'icon-button icon-play';
+		playButton.setAttribute('onclick', 'gamesSection.play(' + game.id + ')');
 		gameElement.appendChild(playButton);
 
 		parentElement.appendChild(gameElement);
 		return gameElement;
+	},
+
+	play: function(gameId)
+	{
+		xeq.setCurrentSection(Sections.Matchmaking);
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+			var response = JSON.parse(this.responseText);
+			if (response.status == 'joined')
+			{
+				xeq.setCurrentSection(Sections.Game);
+			}
+			else
+			{
+				let intervalId = setInterval(function()
+				{
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function()
+					{
+						if (this.readyState != 4 || this.status != 200)
+							return;
+
+						var response = JSON.parse(this.responseText);
+						if (response.status == 'joined')
+						{
+							clearInterval(intervalId);
+							xeq.setCurrentSection(Sections.Game);
+						}
+					};
+					xhr.open('GET', 'php/.php?game_id=' + gameId);
+					xhr.send();
+				}, 1000);
+			}
+		}
+		xhr.open('GET', 'php/join-match.php?game_id=' + gameId);
+		xhr.send();
 	}
 };

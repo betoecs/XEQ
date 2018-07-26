@@ -12,12 +12,17 @@ body
 	background-color: #12161b;
 }
 
-h1, h3
+h1, h3, h2
 {
 	text-align: center;
 	font-size: 700%;
 }
 
+h2
+{
+	color: white;
+	font-size: 160%;
+}
 h3 { font-size: 110%; }
 
 .scroll-area
