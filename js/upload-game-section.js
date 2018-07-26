@@ -29,6 +29,17 @@ var uploadGameSection =
         document.getElementById('game-js-file').placeholder = uploadInput.files [0].name;
     },
 
+    validateInformation: function()
+    {
+        var image = document.getElementById('game-image-upload-input');
+        var jsFile = document.getElementById('game-js-file-upload-input');
+
+        if (image.value == "" || jsFile.value == "")
+            return false;
+
+        return true;
+    },
+
     uploadGame: function()
     {
         var formData = new FormData();
