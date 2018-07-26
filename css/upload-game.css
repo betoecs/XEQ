@@ -1,0 +1,12 @@
+#game-image
+{
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    width: 128px;
+    height: 128px;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #747677;
+    border-radius: 50%;
+}

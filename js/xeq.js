@@ -5,7 +5,8 @@ const Sections =
 	Friends: 'friends',
 	Profile: 'profile',
 	Matchmaking: 'matchmaking',
-	Game: 'game'
+	Game: 'game',
+	UploadGame: 'upload-game'
 };
 
 var xeq =
@@ -28,12 +29,16 @@ var xeq =
 	setCurrentSection: function(section)
 	{
 		document.getElementById(this.currentSection + '-section').style.display = 'none';
-		document.getElementById(this.currentSection + '-nav').classList.remove('selected-nav-div');
+		var currentSectionNav = document.getElementById(this.currentSection + '-nav');
+		if (currentSectionNav)
+			currentSectionNav.classList.remove('selected-nav-div');
 
 		this.currentSection = section;
 
 		document.getElementById(this.currentSection + '-section').style.display = 'block';
-		document.getElementById(this.currentSection + '-nav').classList.add('selected-nav-div');
+		currentSectionNav = document.getElementById(this.currentSection + '-nav');
+		if (currentSectionNav)
+			currentSectionNav.classList.add('selected-nav-div');
 
 		switch (this.currentSection)
 		{
