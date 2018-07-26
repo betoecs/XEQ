@@ -58,6 +58,7 @@ section { margin-top: 20px; }
 .player span
 {
 	padding: 1%;
+	padding-left: 2%;
 	font-size: 120%;
 }
 

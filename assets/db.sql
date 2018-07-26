@@ -47,3 +47,15 @@ CREATE TABLE play
 	FOREIGN KEY (player_id) REFERENCES player (id),
 	FOREIGN KEY (game_id) REFERENCES game (id)
 );
+
+CREATE TABLE match_
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	game_id INT UNSIGNED NOT NULL,
+	player1_id INT UNSIGNED NOT NULL,
+	player2_id INT UNSIGNED,
+	player1_turn BOOLEAN NOT NULL,
+	command VARCHAR (100),
+	FOREIGN KEY (game_id) REFERENCES game (id),
+	FOREIGN KEY (player1_id) REFERENCES player (id)
+);

@@ -12,12 +12,17 @@ body
 	background-color: #12161b;
 }
 
-h1, h3
+h1, h3, h2
 {
 	text-align: center;
 	font-size: 700%;
 }
 
+h2
+{
+	color: white;
+	font-size: 160%;
+}
 h3 { font-size: 110%; }
 
 .scroll-area
@@ -30,5 +35,7 @@ h3 { font-size: 110%; }
 	background-color: #2a333e;
 	color: white;
 	padding: 1%;
+	overflow-y: auto;
+	max-height: 20vh;
 }
 .scroll-area div:nth-child(even) { background-color: #181d25; }

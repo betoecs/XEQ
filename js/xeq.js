@@ -4,6 +4,8 @@ const Sections =
 	MyGames: 'my-games',
 	Friends: 'friends',
 	Profile: 'profile',
+	Matchmaking: 'matchmaking',
+	Game: 'game',
 	UploadGame: 'upload-game'
 };
 
@@ -40,7 +42,9 @@ var xeq =
 
 		switch (this.currentSection)
 		{
-			case Sections.Friends: friendsSection.update(); break;
+			case Sections.Friends:	friendsSection.update(); break;
+			case Sections.Games:	gamesSection.getGames(); break;
+			case Sections.MyGames:	gamesSection.getMyGames(); break;
 		}
 	},
 

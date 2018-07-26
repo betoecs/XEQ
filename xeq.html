@@ -12,11 +12,13 @@
 		<link rel="stylesheet" type="text/css" href="css/upload-game.css" />
 		<link rel="stylesheet" type="text/css" href="css/xeq.css" />
 		<link rel="stylesheet" type="text/css" href="css/toast.css" />
+		<link rel="stylesheet" type="text/css" href="css/loader.css" />
 
 		<script src="js/xeq.js"></script>
 		<script src="js/upload-game-section.js"></script>
 		<script src="js/upload-image.js"></script>
 		<script src="js/friends-section.js"></script>
+		<script src="js/games-section.js"></script>
 		<script src="js/toast.js"></script>
 
 		<title>XEQ</title>
@@ -34,12 +36,22 @@
 			<div class="scol3" id="profile-nav" onclick="xeq.setCurrentSection(Sections.Profile)">Profile</div>
 		</nav>
 
-		<section class="scol12" id="games-section">
-			<span class="bcol5 scol1"></span>
-			<button class="bcol2 main-button" id="upload-game-button" onclick="xeq.setCurrentSection(Sections.UploadGame)">Add game</button>
+		<!-- Games section -->
+		<section class="scol12" id="games-section" style="display: none">
+			<span class="scol0 bcol3"></span>
+			<div class="scol12 bcol6">
+				<div class="scol12 scroll-area" id="games-area"></div>
+				<span class="scol1 bcol4"></span>
+				<button class="scol10 bcol4 main-button" id="upload-game-button" onclick="xeq.setCurrentSection(Sections.UploadGame)">Add game</button>
+			</div>
 		</section>
 
+		<!-- My Games section -->
 		<section class="scol12" id="my-games-section" style="display: none">
+			<span class="scol0 bcol3"></span>
+			<div class="scol12 bcol6">
+				<div class="scol12 scroll-area" id="my-games-area"></div>
+			</div>
 		</section>
 
 		<!-- Friends section -->
@@ -57,7 +69,23 @@
 			</div>
 		</section>
 
+		<!-- Profile section -->
 		<section class="scol12" id="profile-section" style="display: none">
+		</section>
+
+		<!-- Matchmaking section -->
+		<section class="scol12" id="matchmaking-section" style="display: none">
+			<h2>Connecting</h2>
+			<span class="loader"></span>
+			<div class="row">
+				<span class="scol1 bcol4"></span>
+				<button class="red-button scol10 bcol4">Cancel</button>
+			</div>
+		</section>
+
+		<!-- Game section -->
+		<section class="scol12" id="game-section" style="display: none">
+			<h2>GAME!!!!</h2>
 		</section>
 
 		<!-- Upload game section -->
