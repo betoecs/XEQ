@@ -1,24 +1,16 @@
-form
-{
-	color: #ddd;
-}
+form { color: #ddd; }
 
 input[type=text], input[type=password], input[type=email], input[type=number], textarea
 {
-	background-color: white;
-	color: #555753;
+	background-color: #1f2a39;
+	color: white;
 	font-size: 120%;
 	font-family: 'Exo';
 	padding: 1%;
 
-	border-style: solid;
-	border-width: 1px;
-	border-color: #bbb;
+	border: none;
+	transition: 0.4s;
 }
-
-textarea { resize: none; }
-
-input:focus { border-color: #43ace8; }
 
 label { text-align: left; }
 

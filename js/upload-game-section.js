@@ -1,18 +1,5 @@
 var uploadGameSection =
 {
-    show: function()
-	{
-        document.getElementById('games-section').style.display = 'none';
-		document.getElementById('upload-game-section').style.display = 'block';
-	},
-
-    hide: function()
-	{
-        document.getElementById('game-name').value = "";
-        document.getElementById('games-section').style.display = 'block';
-		document.getElementById('upload-game-section').style.display = 'none';
-	},
-
     clean: function()
     {
         document.getElementById('game-name').value = "";
@@ -56,8 +43,7 @@ var uploadGameSection =
 
             var response = JSON.parse(this.responseText);
             if (response.status == "ok")
-                uploadGameSection.hide();
-
+				xeq.setCurrentSection(Sections.Games);
             else
                 uploadGameSection.clean();
 		}

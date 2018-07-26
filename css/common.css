@@ -19,3 +19,16 @@ h1, h3
 }
 
 h3 { font-size: 110%; }
+
+.scroll-area
+{
+	overflow-y: auto;
+}
+
+.scroll-area div
+{
+	background-color: #2a333e;
+	color: white;
+	padding: 1%;
+}
+.scroll-area div:nth-child(even) { background-color: #181d25; }
