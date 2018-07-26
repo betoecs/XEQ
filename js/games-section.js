@@ -83,7 +83,7 @@ var gamesSection =
 	createGameElement: function(parentElement, game)
 	{
 		var gameElement = document.createElement('div');
-		gameElement.className = 'scol12';
+		gameElement.className = 'scol12 player';
 
 		var imageElement = document.createElement('img');
 		imageElement.src = "assets/images/games/" + game.image;
@@ -91,12 +91,12 @@ var gamesSection =
 		gameElement.appendChild(imageElement);
 
 		var nameElement = document.createElement('span');
-		gameElement.innerHTML = game.name;
-		gameElement.className = 'scol10';
+		nameElement.innerHTML = game.name;
+		nameElement.className = 'scol10';
 		gameElement.appendChild(nameElement);
 
 		var playButton = document.createElement('span');
-		playButton.className = 'icon-button icon-play';
+		playButton.className = 'icon-button icon-play scol1';
 		playButton.setAttribute('onclick', 'gamesSection.play(' + game.id + ')');
 		gameElement.appendChild(playButton);
 

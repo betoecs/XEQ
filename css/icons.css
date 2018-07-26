@@ -29,7 +29,11 @@
 	content: 'e';
 }
 
-.icon-upload { content: 'f'; }
-.icon-js { content: 'h'; }
-.icon-image { content: 'g'; }
-.icon-play { content: 'i'; }
+.icon-upload::before { content: 'f'; }
+.icon-js::before { content: 'h'; }
+.icon-image::before { content: 'g'; }
+.icon-play::before
+{
+	content: 'i';
+	vertical-align: middle;
+}
