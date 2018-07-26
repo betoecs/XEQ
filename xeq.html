@@ -9,10 +9,13 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css" />
 		<link rel="stylesheet" type="text/css" href="css/buttons.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/upload-game.css" />
 		<link rel="stylesheet" type="text/css" href="css/xeq.css" />
 		<link rel="stylesheet" type="text/css" href="css/toast.css" />
 
 		<script src="js/xeq.js"></script>
+		<script src="js/upload-game-section.js"></script>
+		<script src="js/upload-image.js"></script>
 		<script src="js/friends-section.js"></script>
 		<script src="js/toast.js"></script>
 
@@ -31,7 +34,9 @@
 			<div class="scol3" id="profile-nav" onclick="xeq.setCurrentSection(Sections.Profile)">Profile</div>
 		</nav>
 
-		<section class="scol12" id="games-section" style="display: none">
+		<section class="scol12" id="games-section">
+			<span class="bcol5 scol1"></span>
+			<button class="bcol2 main-button" id="upload-game-button" onclick="xeq.setCurrentSection(Sections.UploadGame)">Add game</button>
 		</section>
 
 		<section class="scol12" id="my-games-section" style="display: none">
@@ -53,6 +58,29 @@
 		</section>
 
 		<section class="scol12" id="profile-section" style="display: none">
+		</section>
+
+		<!-- Upload game section -->
+		<section class="scol12" id="upload-game-section" style="display: none">
+			<span class="bcol3 scol1"></span>
+			<form class="bcol6" id="upload-game" action="javascript: uploadGameSection.uploadGame()"
+					onsubmit="return uploadGameSection.validateInformation()">
+				<div class="bcol2" id="game-image" onclick="document.getElementById('game-image-upload-input').click()"></div>
+				<span class="bcol1"></span>
+				<div class="bcol8 scol12">
+					<label class="scol12" for="game-name">Name: </label>
+					<input class="scol12" type="text" id="game-name" required="required"/>
+					<label class="scol12" for="game-name">JS File: </label>
+					<input class="scol12" id="game-js-file" type="text" placeholder="Click me" readonly
+							onclick="document.getElementById('game-js-file-upload-input').click()"/>
+					<button class="scol12 main-button" type="submit" >Upload Game</button>
+				</div>
+				</span>
+			</form>
+			<input id="game-image-upload-input" type="file" style="position: fixed; top: -1000px" accept="image/*"
+					onchange="uploadGameSection.setImage(this)"/>
+			<input id="game-js-file-upload-input" type="file" style="position: fixed; top: -1000px" accept=".js"
+					onchange="uploadGameSection.setJSFile(this)"/>
 		</section>
 
 		<!-- Toast -->
