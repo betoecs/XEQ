@@ -10,7 +10,7 @@
 	$db = connect_db();
 
 	// Looking for players waiting for opponent
-	$stmt = $db->prepare('SELECT id FROM match_ WHERE game_id = ? AND player2_id = NULL');
+	$stmt = $db->prepare('SELECT id FROM match_ WHERE game_id = ? AND player2_id IS NULL');
 	$stmt->bind_param('i', $game_id);
 	$stmt->execute();
 	$stmt->bind_result($match_id);

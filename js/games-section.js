@@ -128,6 +128,7 @@ var gamesSection =
 						if (this.readyState != 4 || this.status != 200)
 							return;
 
+						console.log(this.responseText);
 						var response = JSON.parse(this.responseText);
 						if (response.status == 'joined')
 						{
@@ -135,7 +136,7 @@ var gamesSection =
 							xeq.setCurrentSection(Sections.Game);
 						}
 					};
-					xhr.open('GET', 'php/.php?game_id=' + gameId);
+					xhr.open('GET', 'php/have-oponent.php?game_id=' + gameId);
 					xhr.send();
 				}, 1000);
 			}
