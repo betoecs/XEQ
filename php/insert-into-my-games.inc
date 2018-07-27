@@ -14,7 +14,7 @@
 
 		// Insert it
 		$stmt->close();
-		$stmt = $db->prepare('INSERT INTO player VALUES (NULL, 0, ?, ?)');
+		$stmt = $db->prepare('INSERT INTO play VALUES (NULL, 0, ?, ?)');
 		$stmt->bind_param('ii', $game_id, $player_id);
 		$stmt->execute();
 		$stmt->close();
