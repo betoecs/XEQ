@@ -30,7 +30,16 @@ var gamesSection =
 			}
 
 			for (let i = 0; i < response.games.length; i++)
-				gamesSection.createGameElement(gamesArea, response.games [i]);
+			{
+				let game = response.games [i];
+				let gameElement = gamesSection.createGameElement(gamesArea, game);
+				gameElement.childNodes [1].className = 'scol9';
+
+				let addIcon = document.createElement('span');
+				addIcon.className = 'icon-button icon-plus scol1';
+				addIcon.setAttribute('onclick', 'gamesSection.addToMyGames(' + game.id + ')');
+				gameElement.insertBefore(addIcon, gameElement.childNodes [2]);
+			}
 		};
 		xhr.open('GET', 'php/get-games.php');
 		xhr.send();
@@ -69,11 +78,36 @@ var gamesSection =
 			{
 				var game = response.games [i];
 				var gameElement = gamesSection.createGameElement(myGamesArea, game);
-				gameElement.childNodes [2].className = 'scol8';
 			}
 		};
 		xhr.open('GET', 'php/get-my-games.php');
 		xhr.send();
+	},
+
+	//////////////////////////////////////
+	// Requests to the server to add the game
+	// which corresponds to gameId param as
+	// my game. Shows a toast when the server
+	// responds to tell to the user if the
+	// action was ok.
+	//////////////////////////////////////
+	addToMyGames: function(gameId)
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+			var response = JSON.parse(this.responseText);
+			if (response.status == 'ok')
+				showToast('Game added to your games');
+			else if (response.status != 'error')
+				showToast('Game has been already added');
+		}
+		xhr.open('POST', 'php/add-to-my-games.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('game_id=' + gameId);
 	},
 
 	//////////////////////////////////////

@@ -8,5 +8,5 @@ function showToast(message)
 	{
 		toast.classList.remove('get-in');
 		toast.style.display = 'none';
-	}, 2400);
+	}, 2900);
 }
