@@ -2,7 +2,7 @@
 	require 'connect-db.inc';
 
 	session_start();
-	$player_id = $_SEESION ['player_id'];
+	$player_id = $_SESSION ['player_id'];
 
 	$response = new stdClass();
 	$db = connect_db();

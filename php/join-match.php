@@ -25,18 +25,34 @@
 		$stmt->bind_param('ii', $player_id, $match_id);
 		$stmt->execute();
 		$stmt->close();
+
+		$_SESSION ['player_turn'] = false;
+		$_SESSION ['is_player1'] = false;
 	}
-	else
+	else // No players waiting for opponent, create a new match
 	{
 		$stmt->close();
 		$response->status = 'wating for player';
 
 		// Insert a new match
-		$stmt = $db->prepare('INSERT INTO match_ VALUES (NULL, ?, ?, NULL, True, "")');
+		$stmt = $db->prepare('INSERT INTO match_ VALUES (NULL, ?, ?, NULL, True, "", "")');
 		$stmt->bind_param('ii', $game_id, $player_id);
 		$stmt->execute();
 		$stmt->close();
+
+		// Get match id
+		$stmt = $db->prepare('SELECT LAST_INSERT_ID()');
+		$stmt->execute();
+		$stmt->bind_result($match_id);
+		$stmt->fetch();
+		$stmt->close();
+
+		$_SESSION ['player_turn'] = true;
+		$_SESSION ['is_player1'] = true;
 	}
+
+	$_SESSION ['match_id'] = $match_id;
+	$_SESSION ['game_id'] = $game_id;
 
 	// Insert game into my games if it hasn't been added yet
 	insert_into_my_games($db, $game_id, $player_id);

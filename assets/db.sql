@@ -55,7 +55,8 @@ CREATE TABLE match_
 	player1_id INT UNSIGNED NOT NULL,
 	player2_id INT UNSIGNED,
 	player1_turn BOOLEAN NOT NULL,
-	command VARCHAR (100),
+	player1_command VARCHAR (100),
+	player2_command VARCHAR (100),
 	FOREIGN KEY (game_id) REFERENCES game (id),
 	FOREIGN KEY (player1_id) REFERENCES player (id)
 );
