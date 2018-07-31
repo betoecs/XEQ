@@ -5,8 +5,10 @@
 		$stmt = $db->prepare('SELECT COUNT(*) FROM play WHERE game_id = ? AND player_id = ?');
 		$stmt->bind_param('ii', $game_id, $player_id);
 		$stmt->execute();
+		$stmt->bind_result($result);
+		$stmt->fetch();
 
-		if ($stmt->fetch())
+		if ($result == '1')
 		{
 			$stmt->close();
 			return;
