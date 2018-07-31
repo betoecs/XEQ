@@ -19,6 +19,7 @@
 .icon-image::before { content: 'g'; }
 .icon-plus::before { content: 'k'; }
 .icon-play::before { content: 'i'; }
+.icon-star::before { content: 'l'; }
 
 .icon-play::before, .icon-rss::before, .icon-login::before, .icon-logout::before, .icon-plus::before
 {

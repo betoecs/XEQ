@@ -76,8 +76,22 @@ var gamesSection =
 
 			for (let i = 0; i < response.games.length; i++)
 			{
-				var game = response.games [i];
-				var gameElement = gamesSection.createGameElement(myGamesArea, game);
+				let game = response.games [i];
+				let gameElement = gamesSection.createGameElement(myGamesArea, game);
+
+				let starsElement = document.createElement('span');
+				starsElement.className = 'scol2';
+
+				let starIcon = document.createElement('span');
+				starIcon.className = 'scol6 icon-star';
+				starsElement.appendChild(starIcon);
+
+				let starCount = document.createElement('span');
+				starCount.innerHTML = game.stars;
+				starsElement.appendChild(starCount);
+
+				gameElement.childNodes [1].className = 'scol8';
+				gameElement.insertBefore(starsElement, gameElement.childNodes [2]);
 			}
 		};
 		xhr.open('GET', 'php/get-my-games.php');
