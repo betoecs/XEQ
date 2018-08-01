@@ -1,11 +1,14 @@
 var gamesSection =
 {
+	friendId: null,
+
 	//////////////////////////////////////
 	// Retrieves all the games of the platform
 	// and creates graphic controller for each one
 	//////////////////////////////////////
 	getGames: function()
 	{
+		this.friendId =  null;
 		var gamesArea = document.getElementById('games-area');
 		while (gamesArea.hasChildNodes())
 			gamesArea.removeChild(gamesArea.firstChild);

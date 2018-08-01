@@ -20,8 +20,9 @@
 .icon-plus::before { content: 'k'; }
 .icon-play::before { content: 'i'; }
 .icon-star::before { content: 'l'; }
+.icon-challenge::before { content: 'm'; }
 
-.icon-play::before, .icon-rss::before, .icon-login::before, .icon-logout::before, .icon-plus::before
+.icon-play::before, .icon-rss::before, .icon-login::before, .icon-logout::before, .icon-plus::before, .icon-challenge::before
 {
 	vertical-align: middle;
 }
