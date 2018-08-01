@@ -39,6 +39,63 @@ var homepage =
 	},
 
 	//////////////////////////////////////
+	// Compare the text entered in the "Nick" field when losing the focus (blur) with a user registered in the bd
+	//////////////////////////////////////
+	verifyNick: function()
+	{
+		var nick = document.getElementById('nick');
+		if (! nick.value)
+			return;
+
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (xhr.readyState!=4 || xhr.status!=200)
+				return;
+
+			var response = JSON.parse(xhr.responseText);
+			if(response.resultado>0)
+			{
+				showToast("That nick is already used");
+				nick.value = '';
+				nick.focus();
+			}
+		}
+		xhr.open('GET', 'php/verify-nick.php?nick='+nick.value);
+		xhr.send();
+	},
+
+	//////////////////////////////////////
+	// Verify that you have an e-mail structure in that field.
+	// if it is valid, it accepts it, if it does not erase it,
+	// in the same way when it is out of focus.
+	//////////////////////////////////////
+	verifyEmail: function()
+	{
+		var email = document.getElementById('email');
+		if (! email.value)
+			return;
+
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange=function()
+		{
+		  if (xhr.readyState!=4 || xhr.status!=200)
+				return;
+
+	  	var response = JSON.parse(xhr.responseText);
+			console.log(response);
+ 	   	if(response.resultado>0)
+		 	{
+  	 		showToast("That email is already used");
+ 	   		email.value = '';
+				email.focus();
+	  	}
+		}
+		xhr.open('GET', 'php/verify-email.php?email='+email.value);
+		xhr.send();
+	},
+
+	//////////////////////////////////////
 	// Requests server to sign in a new player.
 	// Sends sign in form data to sign-in.php.
 	// If the sign in process went ok, redirects
