@@ -46,9 +46,9 @@
 				<span class="scol1"></span>
 				<form class="scol10" action="javascript: homepage.signIn()" onsubmit="return homepage.validateSignInForm()" id="sign-in-form">
 					<label class="scol12" for="nick">Nick: </label>
-					<input class="scol12" type="text" id="nick" required="required" />
+					<input class="scol12" type="text" id="nick" required="required" onblur="homepage.verifyNick()" />
 					<label class="scol12" for="email">Email: </label>
-					<input class="scol12" type="email" id="email" required="required" />
+					<input class="scol12" type="email" id="email" required="required" onblur="homepage.verifyEmail()" />
 					<label class="scol12" for="password">Password: </label>
 					<input class="scol12" type="password" id="password" required="required" />
 					<label class="scol12" for="confirm-password">Confirm password: </label>
