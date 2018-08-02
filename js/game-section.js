@@ -1,5 +1,9 @@
 var gameSection =
 {
+	Lose: 'You lose',
+	Draw: 'Draw',
+	Won:  'You won!!!',
+
     init: function(gameId, isPlayer1)
     {
         var gameSectionElement = document.getElementById('game-section');
@@ -23,7 +27,7 @@ var gameSection =
         setInterval(function() { gameSection.retrieveOpponentCommand(); }, 1000);
     },
 
-    close: function(won)
+    close: function(result)
     {
         var gameSectionElement = document.getElementById('game-section');
         while (gameSectionElement.hasChildNodes())
@@ -31,9 +35,9 @@ var gameSection =
 
         document.head.removeChild(document.getElementById('game-script'));
 
-        xeq.setCurrentSection(Sections.Game);
-        gameSection.friendId = null;
-        showToast('You ' + ((won) ? 'win' : 'loss'));
+        xeq.setCurrentSection(Sections.Games);
+		gameSection.friendId = null;
+        showToast(result);
     },
 
     retrieveOpponentCommand: function()
