@@ -40,6 +40,9 @@ var xeq =
 		if (currentSectionNav)
 			currentSectionNav.classList.add('selected-nav-div');
 
+		if (this.currentSection != Sections.Game)
+			gameSection.leaveMatch();
+
 		switch (this.currentSection)
 		{
 			case Sections.Friends:	friendsSection.update(); break;
@@ -55,17 +58,20 @@ var xeq =
 	//////////////////////////////////////
 	logOut: function(asynchronous = true)
 	{
-		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function()
+		gameSection.leaveMatch(asynchronous, function()
 		{
-			if (this.readyState != 4 || this.status != 200)
-				return;
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function()
+			{
+				if (this.readyState != 4 || this.status != 200)
+					return;
 
-			sessionStorage.removeItem('nick');
-			document.location.href = 'homepage.html';
-		};
-		xhr.open("GET", "php/log-out.php", asynchronous);
-		xhr.send();
+				sessionStorage.removeItem('nick');
+				document.location.href = 'homepage.html';
+			};
+			xhr.open("GET", "php/log-out.php", asynchronous);
+			xhr.send();
+		});
 	}
 };
 

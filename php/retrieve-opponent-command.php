@@ -5,7 +5,7 @@
     session_start();
 
     // Verify $_SESSION data
-    if (! isset($_SESSION ['match_id']) || ! isset($_SESSION ['player_turn']) || $_SESSION ['player_turn'])
+    if (! isset($_SESSION ['match_id']) || ! isset($_SESSION ['player_turn']))
     {
         $response->status = 'error';
         echo json_encode($response);
