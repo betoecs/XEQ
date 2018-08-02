@@ -111,15 +111,26 @@ var game =
 
 	onOpponentCommand: function(command)
 	{
-		if (command.type == 'opponent-win')
+		if (command.type != 'movement')
 		{
-			gameSection.close(true);
+			gameSection.close((command.type == 'opponent-win') ? gameSection.Won : gameSection.Draw);
 			return;
 		}
 
 		var opponentCard = (this.isPlayer1) ? CardType.Mouse : CardType.Cat;
 		this.setSquare(command.column, command.row, opponentCard);
-		
+
+		// Look for draw
+		var draw = true;
+		for (var i = 0; i < 9; i++)
+			if (this.grid [i] == CardType.Emtpy)
+				draw = false;
+		if (draw)
+		{
+			gameSection.postCommand({type: 'draw'});
+			return;
+		}
+
 		// Verify if the opponent has won
 		var opponentWon = true;
 		for (var column = 0; column < 3; column++)
@@ -184,16 +195,17 @@ var game =
 			gameSection.postCommand({type: 'opponent-win'});
 			return;
 		}
-		
+
 		this.itsTurn = true;
 	},
 
 	onCommandPosted: function(command)
-	{	
+	{
 		if (command.type == 'opponent-win')
-			gameSection.close(false);
+			gameSection.close(gameSection.Lose);
+		else if (command.type == 'draw')
+			gameSection.close(gameSection.Draw);
 		else
 			this.setSquare(command.column, command.row, (this.isPlayer1) ? CardType.Cat : CardType.Mouse);
 	}
 };
-
