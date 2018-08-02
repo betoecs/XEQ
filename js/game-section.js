@@ -35,7 +35,8 @@ var gameSection =
 
         document.head.removeChild(document.getElementById('game-script'));
 
-        xeq.setCurrentSection(Sections.Game);
+        xeq.setCurrentSection(Sections.Games);
+		gameSection.friendId = null;
         showToast(result);
     },
 

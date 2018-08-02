@@ -261,7 +261,7 @@ var friendsSection =
 
 	challengeFriend: function(friendId)
 	{
-		//xeq.setCurrentSection(Sections.MyGames);
-		showToast('Choose the game');
+		gamesSection.friendId = friendId;
+		xeq.setCurrentSection(Sections.MyGames);
 	}
 };

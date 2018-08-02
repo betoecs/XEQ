@@ -52,6 +52,7 @@
 	        unset($_SESSION ['match_id']);
 	        unset($_SESSION ['player_turn']);
 	        unset($_SESSION ['is_player1']);
+	        unset($_SESSION ['$match_status']);
 	        $game_id = $_SESSION ['game_id'];
 	        unset($_SESSION ['game_id']);
 	        $player_id = $_SESSION ['player_id'];

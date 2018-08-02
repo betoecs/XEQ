@@ -34,6 +34,7 @@
     if ($command->type == 'opponent-win')
     {
         unset($_SESSION ['match_id']);
+        unset($_SESSION ['$match_status']);
         unset($_SESSION ['player_turn']);
         unset($_SESSION ['is_player1']);
         $game_id = $_SESSION ['game_id'];
