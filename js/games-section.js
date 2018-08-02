@@ -187,13 +187,22 @@ var gamesSection =
 							xeq.setCurrentSection(Sections.Game);
 							gameSection.init(gameId, true);
 						}
+
+						else if (response.status == 'challenge rejected')
+						{
+							showToast('Your challenge has been rejected');
+							xeq.setCurrentSection(Sections.Friends);
+						}
 					};
 					xhr.open('GET', 'php/have-oponent.php?game_id=' + gameId);
 					xhr.send();
 				}, 1000);
 			}
 		}
-		xhr.open('GET', 'php/join-match.php?game_id=' + gameId);
+		if (this.friendId)
+			xhr.open('GET', 'php/join-match.php?game_id=' + gameId + '&friend_id=' + this.friendId);
+		else
+			xhr.open('GET', 'php/join-match.php?game_id=' + gameId);
 		xhr.send();
 	}
 };

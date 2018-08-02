@@ -28,16 +28,6 @@ CREATE TABLE friends
 	FOREIGN KEY (player2_id) REFERENCES player (id)
 );
 
-CREATE TABLE challenge
-(
-	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	state INT (2) NOT NULL,
-	player1_id INT UNSIGNED NOT NULL,
-	player2_id INT UNSIGNED NOT NULL,
-	FOREIGN KEY (player1_id) REFERENCES player (id),
-	FOREIGN KEY (player2_id) REFERENCES player (id)
-);
-
 CREATE TABLE play
 (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -57,6 +47,7 @@ CREATE TABLE match_
 	player1_turn BOOLEAN NOT NULL,
 	player1_command VARCHAR (100),
 	player2_command VARCHAR (100),
+	accepted TINYINT NULL,
 	FOREIGN KEY (game_id) REFERENCES game (id),
 	FOREIGN KEY (player1_id) REFERENCES player (id)
 );

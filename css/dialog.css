@@ -1,7 +1,53 @@
+/* Dialog container */
+.dialog-background
+{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+	overflow: auto;
+	position: fixed;
+	overflow-y: auto;
+	z-index: 5;
+}
+
 .dialog
 {
 	background-color: #181d25;
-	border-radius: 5px;
-	color: white;
-	padding-bottom: 2%;
+	margin-top: 12%;
+	position: relative;
+	border-radius: 3px;
+	-webkit-animation: zoom-in 0.7s ease;
+	animation: zoom-in 0.7s ease;
+}
+
+/* Dialog title */
+.dialog-title
+{
+	color: #cccccc;
+	text-align: center;
+}
+
+.dialog-title *
+{
+	padding: .5%;
+	padding-bottom: 0.3%;
+}
+
+/* Dialog body */
+.dialog-body
+{
+	color: #cfc9c9;
+	padding-left: 8%;
+	padding-top: 2%;
+	padding-right: 8%;
+	padding-bottom: 3%;
+}
+
+/* Dialog animations */
+.hide-dialog
+{
+	-webkit-animation: zoom-out 0.7s ease;
+	animation-name: zoom-out 0.7s ease;
 }

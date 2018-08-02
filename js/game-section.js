@@ -32,6 +32,7 @@ var gameSection =
         document.head.removeChild(document.getElementById('game-script'));
 
         xeq.setCurrentSection(Sections.Game);
+        gameSection.friendId = null;
         showToast('You ' + ((won) ? 'win' : 'loss'));
     },
 

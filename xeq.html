@@ -6,6 +6,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/grid.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/dialog.css" />
 		<link rel="stylesheet" type="text/css" href="css/form.css" />
 		<link rel="stylesheet" type="text/css" href="css/buttons.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
@@ -15,12 +16,14 @@
 		<link rel="stylesheet" type="text/css" href="css/loader.css" />
 
 		<script src="js/xeq.js"></script>
+		<script src="js/dialog.js"></script>
+		<script src="js/challenge-dialog.js"></script>
+		<script src="js/friends-section.js"></script>
+		<script src="js/game-section.js"></script>
+		<script src="js/games-section.js"></script>
+		<script src="js/toast.js"></script>
 		<script src="js/upload-game-section.js"></script>
 		<script src="js/upload-image.js"></script>
-		<script src="js/friends-section.js"></script>
-		<script src="js/games-section.js"></script>
-		<script src="js/game-section.js"></script>
-		<script src="js/toast.js"></script>
 
 		<title>XEQ</title>
 	</head>
@@ -110,6 +113,28 @@
 					onchange="uploadGameSection.setImage(this)"/>
 			<input id="game-js-file-upload-input" type="file" style="position: fixed; top: -1000px" accept=".js"
 					onchange="uploadGameSection.setJSFile(this)"/>
+		</section>
+
+		<!-- Challenge Dialog -->
+		<section class="dialog-background" id="challenge-dialog-background">
+			<span class="scol0 mcol2 bcol4"></span>
+			<div class="scol12 mcol8 bcol4 dialog" id="challenge-dialog">
+				<div class="scol12 dialog-title">
+					<span class="scol1"></span>
+					<h3 class="scol10">Challenge</h3>
+					<span class="scol1" onclick="closeDialog('challenge')"></span>
+				</div>
+
+				<div class="scol12 dialog-body">
+					<p id="challenge-dialog-text"></p>
+					<div>
+						<span class="scol1"></span>
+						<button class="scol4 main-button" onclick="challengeDialog.onResponse(1)">Accept</button>
+						<span class="scol2" ></span>
+						<button class="scol4 main-button" onclick="challengeDialog.onResponse(2)">Reject</button>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<!-- Toast -->
