@@ -23,6 +23,9 @@ var game =
 		var context = canvas.getContext('2d');
 
 		// Draw the grid
+		context.lineWidth = 15;
+		context.strokeStyle = "white";
+
 		context.beginPath();
 		context.moveTo(.33 * canvas.width, 0);
 		context.lineTo(.33 * canvas.width, canvas.height);
@@ -82,6 +85,7 @@ var game =
 		var x = (column * 0.33 + 0.16) * this.canvas.width;
 		var y = (row * 0.33 + 0.16) * this.canvas.height;
 		var lineLength = this.canvas.height * 0.1;
+		context.strokeStyle = (cardType == CardType.Mouse) ? "#158f9c" : "#fe4242";
 
 		if (cardType == CardType.Cat)
 		{
