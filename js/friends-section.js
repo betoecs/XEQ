@@ -162,10 +162,23 @@ var friendsSection =
 
 		var friendNickElement = document.createElement('span');
 		friendNickElement.innerHTML = friend.nick;
-		friendNickElement.className = 'scol10';
 		friendElement.appendChild(friendNickElement);
 
-		var onlineElement = document.createElement('span');
+		if (friend.online)
+		{
+			friendNickElement.className = 'scol9';
+
+			let challengeIcon = document.createElement('span');
+			challengeIcon.className = 'scol1 icon-button icon-challenge';
+			challengeIcon.setAttribute('onclick', 'friendsSection.challengeFriend(' + friend.id + ')');
+			friendElement.appendChild(challengeIcon);
+		}
+		else
+		{
+			friendNickElement.className = 'scol10';
+		}
+
+		let onlineElement = document.createElement('span');
 		onlineElement.className = 'scol1 icon-rss ' + ((friend.online) ? 'online' : 'offline');
 		friendElement.appendChild(onlineElement);
 
@@ -244,5 +257,11 @@ var friendsSection =
 		};
 		xhr.open('GET', 'php/send-friend-request.php?to=' + playerId);
 		xhr.send();
+	},
+
+	challengeFriend: function(friendId)
+	{
+		gamesSection.friendId = friendId;
+		xeq.setCurrentSection(Sections.MyGames);
 	}
 };

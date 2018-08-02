@@ -13,8 +13,8 @@
 #toast.get-in
 {
 	bottom: 50px;
-	-webkit-animation: toast-get-in 0.5s, toast-get-in 0.5s 2s reverse;
-	animation: toast-get-in 0.5s, toast-get-in 0.5s 2s reverse
+	-webkit-animation: toast-get-in 0.5s, toast-get-in 0.5s 2.5s reverse;
+	animation: toast-get-in 0.5s, toast-get-in 0.5s 2.5s reverse
 }
 
 @-webkit-keyframes toast-get-in

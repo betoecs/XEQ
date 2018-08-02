@@ -11,7 +11,7 @@
 		if ($result == '1')
 		{
 			$stmt->close();
-			return;
+			return false;
 		}
 
 		// Insert it
@@ -20,5 +20,6 @@
 		$stmt->bind_param('ii', $game_id, $player_id);
 		$stmt->execute();
 		$stmt->close();
+		return true;
 	}
 ?>

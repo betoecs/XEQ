@@ -9,31 +9,20 @@
 	font-family: 'xeq-font';
 }
 
-.icon-logout::before
-{
-	content: 'a';
-	vertical-align: middle;
-}
-
-.icon-login::before
-{
-	content: 'b';
-	vertical-align: middle;
-}
-
+.icon-logout::before { content: 'a'; }
+.icon-login::before { content: 'b'; }
 .icon-check::before { content: 'c'; }
 .icon-trash::before { content: 'd'; }
-.icon-rss::before
-{
-	vertical-align: middle;
-	content: 'e';
-}
-
+.icon-rss::before { content: 'e'; }
 .icon-upload::before { content: 'f'; }
 .icon-js::before { content: 'h'; }
 .icon-image::before { content: 'g'; }
-.icon-play::before
+.icon-plus::before { content: 'k'; }
+.icon-play::before { content: 'i'; }
+.icon-star::before { content: 'l'; }
+.icon-challenge::before { content: 'm'; }
+
+.icon-play::before, .icon-rss::before, .icon-login::before, .icon-logout::before, .icon-plus::before, .icon-challenge::before
 {
-	content: 'i';
 	vertical-align: middle;
 }

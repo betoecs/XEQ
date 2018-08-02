@@ -69,5 +69,24 @@ var xeq =
 	}
 };
 
-window.onload = function() { xeq.init(); };
+window.onload = function()
+{
+	xeq.init();
+	setInterval(function()
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+				var response = JSON.parse(this.responseText);
+				if (response.status == 'new challenge')
+					challengeDialog.show(response.game_name, response.friend_name);
+		};
+		xhr.open("GET", "php/have-challenges.php");
+		xhr.send();
+	}, 5000);
+};
+
 window.onunload = function() { xeq.logOut(false); };
