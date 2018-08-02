@@ -83,17 +83,17 @@ var gamesSection =
 				let gameElement = gamesSection.createGameElement(myGamesArea, game);
 
 				let starsElement = document.createElement('span');
-				starsElement.className = 'scol2';
+				starsElement.className = 'scol4';
 
 				let starIcon = document.createElement('span');
-				starIcon.className = 'scol6 icon-star';
+				starIcon.className = 'scol2 icon-star';
 				starsElement.appendChild(starIcon);
 
 				let starCount = document.createElement('span');
 				starCount.innerHTML = game.stars;
 				starsElement.appendChild(starCount);
 
-				gameElement.childNodes [1].className = 'scol8';
+				gameElement.childNodes [1].className = 'scol6';
 				gameElement.insertBefore(starsElement, gameElement.childNodes [2]);
 			}
 		};
