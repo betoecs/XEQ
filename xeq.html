@@ -34,10 +34,9 @@
 		</header>
 
 		<nav class="scol12">
-			<div class="scol3" id="games-nav" onclick="xeq.setCurrentSection(Sections.Games)">Games</div>
-			<div class="scol3" id="my-games-nav" onclick="xeq.setCurrentSection(Sections.MyGames)">My Games</div>
-			<div class="scol3" id="friends-nav" onclick="xeq.setCurrentSection(Sections.Friends)">Friends</div>
-			<div class="scol3" id="profile-nav" onclick="xeq.setCurrentSection(Sections.Profile)">Profile</div>
+			<div class="scol4" id="games-nav" onclick="xeq.setCurrentSection(Sections.Games)">Games</div>
+			<div class="scol4" id="my-games-nav" onclick="xeq.setCurrentSection(Sections.MyGames)">My Games</div>
+			<div class="scol4" id="friends-nav" onclick="xeq.setCurrentSection(Sections.Friends)">Friends</div>
 		</nav>
 
 		<!-- Games section -->
@@ -75,17 +74,13 @@
 			</div>
 		</section>
 
-		<!-- Profile section -->
-		<section class="scol12" id="profile-section" style="display: none">
-		</section>
-
 		<!-- Matchmaking section -->
 		<section class="scol12" id="matchmaking-section" style="display: none">
 			<h2>Connecting</h2>
 			<span class="loader"></span>
 			<div class="row">
 				<span class="scol1 bcol4"></span>
-				<button class="red-button scol10 bcol4">Cancel</button>
+				<button class="red-button scol10 bcol4" onclick="gamesSection.cancell()">Cancel</button>
 			</div>
 		</section>
 

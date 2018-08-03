@@ -204,5 +204,21 @@ var gamesSection =
 		else
 			xhr.open('GET', 'php/join-match.php?game_id=' + gameId);
 		xhr.send();
+	},
+
+	cancell: function ()
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+			var response = JSON.parse(this.responseText);
+			if (response.status == 'ok')
+				xeq.setCurrentSection(Sections.Games);
+		}
+		xhr.open('POST', 'php/cancell-matchmaking.php');
+		xhr.send();
 	}
 };
