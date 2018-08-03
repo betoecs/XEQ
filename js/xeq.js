@@ -3,7 +3,6 @@ const Sections =
 	Games:   'games',
 	MyGames: 'my-games',
 	Friends: 'friends',
-	Profile: 'profile',
 	Matchmaking: 'matchmaking',
 	Game: 'game',
 	UploadGame: 'upload-game'
@@ -11,7 +10,7 @@ const Sections =
 
 var xeq =
 {
-	currentSection: Sections.Profile,
+	currentSection: Sections.Games,
 
 	//////////////////////////////////////
 	// Sets the player's nick in the header
