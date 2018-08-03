@@ -29,9 +29,9 @@
 				<span class="scol1"></span>
 				<form class="scol10" id="log-in-form" action="javascript: homepage.logIn()">
 					<label class="scol12" for="nick">Nick: </label>
-					<input class="scol12" type="text" id="log-in-nick" required="required" />
+					<input class="scol12" type="text" id="log-in-nick" required="required" maxlength="15" />
 					<label class="scol12" for="password">Password: </label>
-					<input class="scol12" type="password" id="log-in-password" required="required" />
+					<input class="scol12" type="password" id="log-in-password" required="required" maxlength="64" />
 					<button class="scol12 main-button">Log in <span class="icon-login"></span></button>
 				</form>
 				<button class="scol12 text-button" onclick="homepage.showSignInSection()">Need an account?</button>
@@ -46,13 +46,13 @@
 				<span class="scol1"></span>
 				<form class="scol10" action="javascript: homepage.signIn()" onsubmit="return homepage.validateSignInForm()" id="sign-in-form">
 					<label class="scol12" for="nick">Nick: </label>
-					<input class="scol12" type="text" id="nick" required="required" onblur="homepage.verifyNick()" />
+					<input class="scol12" type="text" id="nick" required="required" onblur="homepage.verifyNick()" maxlength="15" />
 					<label class="scol12" for="email">Email: </label>
-					<input class="scol12" type="email" id="email" required="required" onblur="homepage.verifyEmail()" />
+					<input class="scol12" type="email" id="email" required="required" onblur="homepage.verifyEmail()" email="64" />
 					<label class="scol12" for="password">Password: </label>
-					<input class="scol12" type="password" id="password" required="required" />
+					<input class="scol12" type="password" id="password" required="required" maxlength="64" />
 					<label class="scol12" for="confirm-password">Confirm password: </label>
-					<input class="scol12" type="password" id="confirm-password" required="required" />
+					<input class="scol12" type="password" id="confirm-password" required="required" maxlength="64" />
 					<button class="scol12 main-button">Sign in <span class="icon-login"></span></button>
 				</form>
 				<button class="scol12 text-button" onclick="homepage.showLogInSection()">Cancel</button>

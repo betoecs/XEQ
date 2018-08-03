@@ -3,9 +3,11 @@ var gameSection =
 	Lose: 'You lose',
 	Draw: 'Draw',
 	Won:  'You won!!!',
+	isPlayer1: null,
 
     init: function(gameId, isPlayer1)
     {
+		this.isPlayer1 = isPlayer1;
         var gameSectionElement = document.getElementById('game-section');
 
         var gameTitleElement = document.createElement('h2');
@@ -35,8 +37,9 @@ var gameSection =
 
         document.head.removeChild(document.getElementById('game-script'));
 
-        xeq.setCurrentSection(Sections.Games);
+		this.isPlayer1 = null;
 		gameSection.friendId = null;
+		xeq.setCurrentSection(Sections.Games);
         showToast(result);
     },
 
@@ -75,5 +78,20 @@ var gameSection =
         }
         xhr.open('POST', 'php/post-command.php');
         xhr.send(commandData);
-    }
+    },
+
+	leaveMatch: function(asynchronous = true, callback = null)
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState != 4 || this.status != 200)
+				return;
+
+			if (callback)
+				callback();
+		}
+		xhr.open('GET', 'php/leave-match.php', asynchronous);
+		xhr.send();
+	}
 };
